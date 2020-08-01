@@ -6,8 +6,8 @@ results = requests.get('https://en.wikipedia.org/wiki/Liverpool_F.C.')
 
 soup = bs4.BeautifulSoup(results.text,"lxml")
 
-liv_toc = soup.select('.toctext')
+liv_list = soup.select('.toctext')
 
-liv_toc_headers = [elm.getText() for elm in liv_toc]
+liv_list_elms = [elm.getText() for elm in liv_list]
 
-print(liv_toc_headers)
+print(liv_list_elms)
