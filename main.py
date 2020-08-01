@@ -8,6 +8,6 @@ soup = bs4.BeautifulSoup(results.text,"lxml")
 
 liv_toc = soup.select('.toctext')
 
-liv_names = re.findall(r'(Cup+|cup+)',liv_intro)
+liv_toc_headers = [elm.getText() for elm in liv_toc]
 
-print(liv_)
+print(liv_toc_headers)
