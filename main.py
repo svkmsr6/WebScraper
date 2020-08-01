@@ -1,13 +1,11 @@
 import requests
-import bs4
+#import bs4
 #import re
 
-results = requests.get('https://en.wikipedia.org/wiki/Liverpool_F.C.')
+img_link = requests.get('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/John_Houlding.jpg/170px-John_Houlding.jpg')
 
-soup = bs4.BeautifulSoup(results.text,"lxml")
+img_content = img_link.content
 
-liv_list = soup.select('.thumbimage')
-
-liv_list_elms = [elm['src'] for elm in liv_list]
-
-print(liv_list_elms[0])
+f = open('my_image.jpg','wb')
+f.write(img_content)
+f.close()
